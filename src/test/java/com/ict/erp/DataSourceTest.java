@@ -64,27 +64,27 @@ public class DataSourceTest {
 	@Test
 	public void insertTest() {
 		LevelInfo li = new LevelInfo();
-		li.setLilevel(5);
-		li.setLiname("테스트트");
-		li.setLidesc("테스트데이터");
-		//assertEquals(ss.insert("SQL.LEVELINFO.insertLevelInfo",li), 1);
+		li.setLilevel(1);
+		li.setLiname("만들기");
+		li.setLidesc("만들기데이터");
+		assertEquals(ss.insert("SQL.LEVELINFO.insertLevelInfo",li), 1);
 		
 	}
 
 	@Test
 	public void updateTest() {
 		LevelInfo li = new LevelInfo();
-		li.setLinum(85);
-		li.setLiname("테스트77");
-		li.setLidesc("테스트데이터777");
+		li.setLinum(3);
+		li.setLiname("88올림");
+		li.setLidesc("888");
 		assertEquals(ss.update("SQL.LEVELINFO.updateLevelInfo",li), 1);
 	}
 	
 	@Test
 	public void deleteTest() {
 		LevelInfo li = new LevelInfo();
-		li.setLinum(25);
-		assertEquals(ss.delete("SQL.LEVELINFO.deleteLevelInfo",li), 1);
+		li.setLinum(4);
+		//assertEquals(ss.delete("SQL.LEVELINFO.deleteLevelInfo",li), 1);
 		
 	}
 }
