@@ -34,7 +34,7 @@ public class LevelInfoDAOImpl implements LevelInfoDAO {
 	@Override
 	public int deleteLevelInfo(int linum) {
 		// TODO Auto-generated method stub
-		return ss.delete("SQL.LEVELINFO.selectLevelInfo",linum);
+		return ss.delete("SQL.LEVELINFO.deleteLevelInfo",linum);
 	}
 
 }

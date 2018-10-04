@@ -7,18 +7,19 @@
 <title>Insert title here</title>
 </head>
 <body>
-
-<c:if test="${iCnt}==1">
-	alert("저장 성공");
-	location.href="/levelinfo";
+<script>
+<c:if test="${!empty iCnt}">
+	<c:if test="${iCnt eq 1}">
+		alert("저장성공");
+		location.href="/levelinfo";
+	</c:if>
 </c:if>
- 
-<form action="/levelinfo" method="POST">
+</script>
+<form action="/levelinfo" method="post">
 	liname : <input type="text" name="liname"><br>
-	lilevel :<input type="text" name="lilevel"><br>
-	lidesc :<input type="text" name="lidesc"><br>
-	<button>등록</button>
-		
+	lilevel : <input type="text" name="lilevel"><br>
+	lidesc : <input type="text" name="lidesc"><br>
+	<button>레벨등록</button>
 </form>
 </body>
-</html>
+</html> 

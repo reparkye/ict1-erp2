@@ -23,6 +23,7 @@
  
 
 		<!-- Generic properties -->
+		<m2eclipse.wtp.contextRoot>/</m2eclipse.wtp.contextRoot>
 
 		<maven.compiler.source>1.7</maven.compiler.source>
 
