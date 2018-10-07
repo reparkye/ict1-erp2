@@ -2,7 +2,6 @@ package com.ict.erp.controller;
  import java.util.List;
  import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -14,43 +13,63 @@ import com.ict.erp.vo.LevelInfo;
  
 @Controller
 public class LevelInfoController {
- 	@Autowired
+ 	
+	
+	@Autowired
 	private LevelInfoService lis;
- 	@RequestMapping(value="/levelinfo",method=RequestMethod.GET)
-	public String getLevelInfoList(
-			 @ModelAttribute LevelInfo li,
-			Model m) {
+ 	
+ 	
+ 	@RequestMapping(value="/levelinfo",method=RequestMethod.GET)   //겟방식은 바디 사용불가 로 ?로 해줌
+ 	/*public String getLevelInfoList(
+			 @ModelAttribute LevelInfo li, Model m) {
 		m.addAttribute("liList", lis.getLevelInfoList(li));
-		return "levelinfo/list";
+		return "levelinfo/list";*/
+ 	public @ResponseBody List<LevelInfo> getLevelInfoList(@ModelAttribute LevelInfo li){	//@ form 
+ 		return lis.getLevelInfoList(li);
 	}
+ 	
+ 	@RequestMapping(value="/levelinfo/{linum}",method=RequestMethod.GET)
+ 	public @ResponseBody LevelInfo getLevelInfo(@PathVariable Integer linum) {	//{linum} 을 @pathvar.. 에다가 넣어준다.
+ 		return lis.getLevelInfo(linum);
+ 	}
+ 	
  	
  	@RequestMapping(value="/levelinfo",method=RequestMethod.POST)
 	@ResponseBody 
-	public String insertLevelInfoList(
-			 LevelInfo li,
+	/*public String insertLevelInfoList(
+			@RequestBody LevelInfo li,
 			Model m) {
-		//m.addAttribute("iCnt", lis.insertLevelInfo(li)); 		
+		//m.addAttribute("iCnt", lis.insertLevelInfo(li));
 		System.out.println(li);
-		return "" + lis.insertLevelInfo(li); 
+		return "" + lis.insertLevelInfo(li); */
+	public Integer insertLevelInfo(@RequestBody LevelInfo li) {
+		return lis.insertLevelInfo(li); 
 	}
+ 	
+ 	
+ 	@RequestMapping(value="/levelinfo/{linum}",method=RequestMethod.PUT)
+	@ResponseBody 
+	public Integer updateLevelInfoList(@RequestBody LevelInfo li, @PathVariable Integer linum) {
+		li.setLinum(linum);
+		return lis.updateLevelInfo(li); 
+	}
+ 	
  	
  	@RequestMapping(value="/levelinfo/{linum}",method=RequestMethod.DELETE)
 	@ResponseBody 
-	public String deleteLevelInfoList(
+	/*public String deleteLevelInfoList(
 			@PathVariable int linum,
 			Model m) {
-		System.out.println(linum);
-		System.out.println("타나");
+		System.out.println(linum);*/
+	public String deleteLevelInfoList(@PathVariable int linum) {
 		return lis.deleteLevelInfo(linum)+""; 
 	}
-	/*@RequestMapping(value="/levelinfo2",method=RequestMethod.GET)
-	public @ResponseBody String getLevelInfoList2(
-			 @ModelAttribute LevelInfo li) {
-		return lis.getLevelInfoList(li).toString();
-	}
-	@RequestMapping(value="/levelinfo3",method=RequestMethod.GET)
-	public @ResponseBody List<LevelInfo> getLevelInfoList3(
-			 @ModelAttribute LevelInfo li) {
-		return lis.getLevelInfoList(li);
-	}*/
+ 	
+ 
+ 	@RequestMapping(value="/levelinfos",method=RequestMethod.PUT)
+	@ResponseBody
+	public Integer deleteLevelInfoList(@RequestBody List<LevelInfo> delList) {
+ 		System.out.println(delList);
+ 		return delList.size();
+ 	}
 }

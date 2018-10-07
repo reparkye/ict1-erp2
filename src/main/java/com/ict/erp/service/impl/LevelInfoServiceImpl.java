@@ -28,15 +28,21 @@ public class LevelInfoServiceImpl implements LevelInfoService {
 	}
 
 	@Override
-	public int updateLevelInfo(LevelInfo li) {
-		// TODO Auto-generated method stub
-		return ldao.updateLevelInfo(li);
-	}
-
-	@Override
 	public int deleteLevelInfo(int linum) {
 		// TODO Auto-generated method stub
 		return ldao.deleteLevelInfo(linum);
+	}
+
+	@Override
+	public LevelInfo getLevelInfo(Integer linum) {
+		// TODO Auto-generated method stub
+		return ldao.getLevelInfoList(linum);
+	}
+
+	@Override
+	public int updateLevelInfo(LevelInfo li) {
+		// TODO Auto-generated method stub
+		return ldao.updateLevelInfo(li);
 	}
 	
 	

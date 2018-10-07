@@ -17,7 +17,6 @@ public class DataSourceTest {
 	@Test
 	public void test() {
 		LevelInfo li = new LevelInfo();
-		//linum=1, lilevel=1, liname=일반, lidesc=일반사용자]
 		li.setLidesc("일반사용자");
 		li.setLiname("일반");
 		li.setLilevel(1);

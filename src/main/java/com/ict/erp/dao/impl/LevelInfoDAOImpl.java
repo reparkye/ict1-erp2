@@ -16,7 +16,7 @@ public class LevelInfoDAOImpl implements LevelInfoDAO {
 	
 	@Override
 	public List<LevelInfo> getLevelInfoList(LevelInfo li) {
-		return ss.selectList("SQL.LEVELINFO.selectLevelInfo", li);
+		return ss.selectList("SQL.LEVELINFO.selectLevelInfoList", li);
 	}
 
 	@Override
@@ -26,15 +26,19 @@ public class LevelInfoDAOImpl implements LevelInfoDAO {
 	}
 
 	@Override
-	public int updateLevelInfo(LevelInfo li) {
-		// TODO Auto-generated method stub
-		return ss.update("SQL.LEVELINFO.selectLevelInfo",li);
-	}
-
-	@Override
 	public int deleteLevelInfo(int linum) {
 		// TODO Auto-generated method stub
 		return ss.delete("SQL.LEVELINFO.deleteLevelInfo",linum);
 	}
 
+	@Override
+	public int updateLevelInfo(LevelInfo li) {
+		// TODO Auto-generated method stub
+		return ss.delete("SQL.LEVELINFO.updateLevelInfo", li);
+	}
+	@Override
+	public LevelInfo getLevelInfoList(Integer linum) {
+		// TODO Auto-generated method stub
+		return ss.selectOne("SQL.LEVELINFO.selectLevelInfo",linum);
+	}
 }
