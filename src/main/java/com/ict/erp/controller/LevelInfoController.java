@@ -23,7 +23,7 @@ public class LevelInfoController {
  	/*public String getLevelInfoList(
 			 @ModelAttribute LevelInfo li, Model m) {
 		m.addAttribute("liList", lis.getLevelInfoList(li));
-		return "levelinfo/list";*/
+		return "levelinfo/list";     */
  	public @ResponseBody List<LevelInfo> getLevelInfoList(@ModelAttribute LevelInfo li){	//@ form 
  		return lis.getLevelInfoList(li);
 	}
@@ -35,13 +35,8 @@ public class LevelInfoController {
  	
  	
  	@RequestMapping(value="/levelinfo",method=RequestMethod.POST)
-	@ResponseBody 
-	/*public String insertLevelInfoList(
-			@RequestBody LevelInfo li,
-			Model m) {
-		//m.addAttribute("iCnt", lis.insertLevelInfo(li));
-		System.out.println(li);
-		return "" + lis.insertLevelInfo(li); */
+	@ResponseBody 	//!!!!!!!!!!!!!!!!! 반드시 이해하기 없으면 뷰 리졸버를 타게된다. 있으면 json
+	
 	public Integer insertLevelInfo(@RequestBody LevelInfo li) {
 		return lis.insertLevelInfo(li); 
 	}
