@@ -14,6 +14,7 @@ public class LevelInfoDAOImpl implements LevelInfoDAO {
 	@Autowired
 	private SqlSession ss;
 	
+	
 	@Override
 	public List<LevelInfo> getLevelInfoList(LevelInfo li) {
 		return ss.selectList("SQL.LEVELINFO.selectLevelInfoList", li);
