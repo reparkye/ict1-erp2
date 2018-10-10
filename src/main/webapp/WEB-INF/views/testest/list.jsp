@@ -4,6 +4,9 @@
 <head>
 <meta charset=UTF-8">
 <title>Insert title here</title>
+<link rel = "stylesheet" href = "/css/bt-337/dist/css/bootstrap.css/">
+<link rel = "stylesheet" href = "/css/bt-337/dist/css/bootstrap.theme.css/">
+
 </head>
 <script>
 var AjaxUtil = function(conf){
