@@ -45,5 +45,11 @@ public class LevelInfoServiceImpl implements LevelInfoService {
 		return ldao.updateLevelInfo(li);
 	}
 	
+	@Override
+	public int testTransaction(LevelInfo li) {
+		int cnt  = ldao.updateLevelInfo(li);
+		cnt = ldao.insertLevelInfo(li);
+		return cnt;
+	}
 	
 }

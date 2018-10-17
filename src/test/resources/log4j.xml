@@ -12,7 +12,7 @@
 	
 	<!-- Application Loggers -->
 	<logger name="com.ict.erp">
-		<level value="info" />
+		<level value="debug" />				<!-- 1015수정 -->
 	</logger>
 	
 	<!-- 3rdparty Loggers -->
