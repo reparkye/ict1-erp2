@@ -15,12 +15,12 @@ import com.ict.erp.service.LevelInfoService;
 import com.ict.erp.vo.LevelInfo;
 
 @Controller
-public class LevelInfoController {
+public class UserInfoController {
 
 	@Autowired
 	private LevelInfoService lis;
 
-	@RequestMapping(value="/levelinfos",method=RequestMethod.GET)
+	@RequestMapping(value="/Userinfo",method=RequestMethod.GET)
 	public @ResponseBody List<LevelInfo> getLevelInfoList(@ModelAttribute LevelInfo li) {
 		return lis.getLevelInfoList(li);
 	}

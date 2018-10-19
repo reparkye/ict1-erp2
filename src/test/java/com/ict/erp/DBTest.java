@@ -13,10 +13,10 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import com.ict.erp.vo.LevelInfo;
+ import com.ict.erp.vo.LevelInfo;
  @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration("/root-context.xml")
-public class DataSourceTest {
+@ContextConfiguration("file:src/main/webapp/WEB-INF/spring/root-context.xml")
+public class DBTest {
 	
  	@Autowired
 	private DataSource ds;
@@ -46,12 +46,12 @@ public class DataSourceTest {
 		}
 	}
 	
-	/*@Test
+	@Test
 	public void ssTest() {
 		assertNotNull(ss);
 		List<LevelInfo> liList = ss.selectList("SQL.LEVELINFO.selectLevelInfo");
 		assertEquals(liList.size(), 7);
-	}*/
+	}
 	
 	/*@Test
 	public void insertTest() {

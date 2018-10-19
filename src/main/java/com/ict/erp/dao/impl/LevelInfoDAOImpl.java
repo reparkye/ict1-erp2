@@ -43,3 +43,5 @@ public class LevelInfoDAOImpl implements LevelInfoDAO {
 		return ss.selectOne("SQL.LEVELINFO.selectLevelInfo",linum);
 	}
 }
+
+

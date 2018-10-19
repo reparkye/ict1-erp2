@@ -24,7 +24,7 @@
   <update id="updateLevelInfo" parameterType="li">
   	update level_info 
   	<set>
-  		<if test="lilevel!=null">lilev = #{lilevel},</if>
+  		<if test="lilevel!=null">lilevel = #{lilevel},</if>
   		<if test="liname!=null">liname = #{liname},</if>
   		<if test="lidesc!=null">lidesc = #{lidesc},</if>
   	</set>

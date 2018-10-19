@@ -13,3 +13,6 @@ public interface LevelInfoDAO {
 	public int updateLevelInfo(LevelInfo li);
 	
 }
+
+
+
