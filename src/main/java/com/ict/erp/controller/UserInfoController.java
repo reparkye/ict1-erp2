@@ -11,51 +11,79 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.ict.erp.service.LevelInfoService;
-import com.ict.erp.vo.LevelInfo;
+/*import com.ict.erp.service.UserInfoService;
+import com.ict.erp.vo.UserInfo;
+*/
 
 @Controller
 public class UserInfoController {
 
 	@Autowired
-	private LevelInfoService lis;
-
+	private UserInfoService lis;
+	
+		//Resource userinfo
 	@RequestMapping(value="/Userinfo",method=RequestMethod.GET)
-	public @ResponseBody List<LevelInfo> getLevelInfoList(@ModelAttribute LevelInfo li) {
-		return lis.getLevelInfoList(li);
-	}
-	@RequestMapping(value="/levelinfos/{linum}",method=RequestMethod.GET)
-	public @ResponseBody LevelInfo getLevelInfo(@PathVariable Integer linum) {
-		return lis.getLevelInfo(linum);
-	}
-
-	@RequestMapping(value="/levelinfos/{linum}",method=RequestMethod.POST)
-	@ResponseBody 
-	public Integer insertLevelInfo(@RequestBody LevelInfo li) {
-		return lis.insertLevelInfo(li); 
-	}
-
-	@RequestMapping(value="/levelinfos/{linum}",method=RequestMethod.PUT)
-	@ResponseBody 
-	public Integer updateLevelInfo(@RequestBody LevelInfo li,@PathVariable Integer linum) {
-		li.setLinum(linum);
-		return lis.updateLevelInfo(li);
+		public @ResponseBody List<UserInfo> getUserInfoList(@ModelAttribute UserInfo ui) {
+			return lis.getUserInfoList(ui);
+		}
+		
+		//Resource userinfo/{uinum}
+	@RequestMapping(value="/Userinfos/{uinum}",method=RequestMethod.GET)
+		public @ResponseBody UserInfo getUserInfo(@PathVariable Integer uinum) {
+			return lis.getUserInfo(uinum);
+		}
+	
+	//GET selectUserList
+	@RequestMapping(value="/Userinfo",method=RequestMethod.GET)
+	public @ResponseBody List<UserInfo> selectUserList(@ModelAttribute UserInfo ui) {
+		return lis.getUserInfoList(ui);
 	}
 	
-	@RequestMapping(value="/levelinfos/{linum}",method=RequestMethod.DELETE)
-	@ResponseBody 
-	public String deleteLevelInfo(@PathVariable int linum) {
-		return lis.deleteLevelInfo(linum)+""; 
+	//GET selectUser
+	@RequestMapping(value="/Userinfos/{uinum}",method=RequestMethod.GET)
+	public @ResponseBody UserInfo selectUser(@PathVariable Integer uinum) {
+		return lis.getUserInfo(uinum);
 	}
 
-
-	@RequestMapping(value="/levelinfo2/{linum}",method=RequestMethod.PUT)
-	@ResponseBody 
-	public Integer testLevelInfo(@RequestBody LevelInfo li,@PathVariable Integer linum) {
-		li.setLinum(linum);
-		return lis.testTransaction(li);
+	//POST insertUserList
+	@RequestMapping(value="/Userinfos",method=RequestMethod.POST) 
+	public @ResponseBody List<UserInfo> insertUserList(@ModelAttribute UserInfo ui) {
+	return lis.insertUserInfo(ui); 
 	}
 
+	//POST 404error
+	@RequestMapping(value="/Userinfos/{uinum}",method=RequestMethod.POST)
+	@ResponseBody 
+	public Integer insertUserInfo(@RequestBody UserIn ui) {	//UserIn는 404 에러 내기위해 일부러
+		return lis.insertUserInfo(ui); 
+	}
+	
+	//PUT updateUserList
+	@RequestMapping(value="/Userinfos/{uinum}",method=RequestMethod.PUT)
+	@ResponseBody 
+	public List<UserInfo> updateUserList(@ModelAttribute UserInfo ui) {
+		return lis.updateUserInfo(ui);
+	}
+	
+	//PUT updateUser
+	@RequestMapping(value="/Userinfos/{uinum}",method=RequestMethod.PUT)
+	@ResponseBody 
+	public Integer updateUser(@RequestBody UserInfo ui,@PathVariable Integer uinum) {
+		li.setLinum(uinum);
+		return lis.updateUserInfo(ui);
+	}
+	
+	//DELETE deleteUserList
+	@RequestMapping(value="/Userinfo",method=RequestMethod.DELETE)
+	public @ResponseBody List<UserInfo> deleteUserList(@ModelAttribute UserInfo ui) {
+		return lis.deleteUserInfo(ui)+"";
+	}
 
-
+	//DELETE deleteUser
+		@RequestMapping(value="/Userinfos/{uinum}",method=RequestMethod.DELETE)
+		@ResponseBody 
+		public String deleteUserInfo(@PathVariable int uinum) {
+			return lis.deleteUserInfo(uinum)+""; 
+		}
+	
 }

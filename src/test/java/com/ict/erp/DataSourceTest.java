@@ -27,7 +27,7 @@ public class DataSourceTest {
 	@Autowired
 	private SqlSession ss;
 	
-	@Test
+	/*@Test
 	public void test() {
 		try {
 			Connection con = ds.getConnection();
@@ -44,14 +44,23 @@ public class DataSourceTest {
 		}catch(Exception e) {
 			fail(e.getMessage());
 		}
-	}
+	}*/
 	
-	/*@Test
+	@Test
 	public void ssTest() {
 		assertNotNull(ss);
-		List<LevelInfo> liList = ss.selectList("SQL.LEVELINFO.selectLevelInfo");
-		assertEquals(liList.size(), 7);
-	}*/
+		List<UserInfo> liList = ss.selectList("SQL.USERINFO.selectUserInfoList");
+		assertEquals(liList.size(), 20);
+	}
+	
+	
+	@Test
+	public void sstTest() {
+		UserInfo ui = new UserInfo();
+		ui.setUinum(1);
+		assertNotNull(ui);
+		ui=ss.selectOne("SQL.USERINFO.selectUserInfo",ui);
+	}
 	
 	/*@Test
 	public void insertTest() {
