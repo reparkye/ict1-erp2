@@ -51,6 +51,12 @@ public class LevelInfoServiceImpl implements LevelInfoService {
 		cnt = ldao.insertLevelInfo(li);
 		return cnt;
 	}
+
+	@Override
+	public int getLinum() {
+		// TODO Auto-generated method stub
+		return ldao.getLinum();
+	}
 	
 }
 

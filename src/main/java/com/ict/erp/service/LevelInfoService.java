@@ -13,6 +13,8 @@ public interface LevelInfoService {
 	public int updateLevelInfo(LevelInfo li);
 
 	public int testTransaction(LevelInfo li);
+	
+	public int getLinum();
 }
 
 

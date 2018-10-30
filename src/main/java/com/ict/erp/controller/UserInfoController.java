@@ -1,4 +1,4 @@
-package com.ict.erp.controller;
+/*package com.ict.erp.controller;
 
 import java.util.List;
 
@@ -11,79 +11,117 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-/*import com.ict.erp.service.UserInfoService;
+import com.ict.erp.service.UserInfoService;
 import com.ict.erp.vo.UserInfo;
-*/
+
 
 @Controller
+
 public class UserInfoController {
 
-	@Autowired
-	private UserInfoService lis;
-	
-		//Resource userinfo
-	@RequestMapping(value="/Userinfo",method=RequestMethod.GET)
-		public @ResponseBody List<UserInfo> getUserInfoList(@ModelAttribute UserInfo ui) {
-			return lis.getUserInfoList(ui);
-		}
-		
-		//Resource userinfo/{uinum}
-	@RequestMapping(value="/Userinfos/{uinum}",method=RequestMethod.GET)
-		public @ResponseBody UserInfo getUserInfo(@PathVariable Integer uinum) {
-			return lis.getUserInfo(uinum);
-		}
-	
-	//GET selectUserList
-	@RequestMapping(value="/Userinfo",method=RequestMethod.GET)
-	public @ResponseBody List<UserInfo> selectUserList(@ModelAttribute UserInfo ui) {
-		return lis.getUserInfoList(ui);
-	}
-	
-	//GET selectUser
-	@RequestMapping(value="/Userinfos/{uinum}",method=RequestMethod.GET)
-	public @ResponseBody UserInfo selectUser(@PathVariable Integer uinum) {
-		return lis.getUserInfo(uinum);
-	}
+@Autowired
 
-	//POST insertUserList
-	@RequestMapping(value="/Userinfos",method=RequestMethod.POST) 
-	public @ResponseBody List<UserInfo> insertUserList(@ModelAttribute UserInfo ui) {
-	return lis.insertUserInfo(ui); 
-	}
+private UserInfoService ui;
 
-	//POST 404error
-	@RequestMapping(value="/Userinfos/{uinum}",method=RequestMethod.POST)
-	@ResponseBody 
-	public Integer insertUserInfo(@RequestBody UserIn ui) {	//UserIn는 404 에러 내기위해 일부러
-		return lis.insertUserInfo(ui); 
-	}
-	
-	//PUT updateUserList
-	@RequestMapping(value="/Userinfos/{uinum}",method=RequestMethod.PUT)
-	@ResponseBody 
-	public List<UserInfo> updateUserList(@ModelAttribute UserInfo ui) {
-		return lis.updateUserInfo(ui);
-	}
-	
-	//PUT updateUser
-	@RequestMapping(value="/Userinfos/{uinum}",method=RequestMethod.PUT)
-	@ResponseBody 
-	public Integer updateUser(@RequestBody UserInfo ui,@PathVariable Integer uinum) {
-		li.setLinum(uinum);
-		return lis.updateUserInfo(ui);
-	}
-	
-	//DELETE deleteUserList
-	@RequestMapping(value="/Userinfo",method=RequestMethod.DELETE)
-	public @ResponseBody List<UserInfo> deleteUserList(@ModelAttribute UserInfo ui) {
-		return lis.deleteUserInfo(ui)+"";
-	}
 
-	//DELETE deleteUser
-		@RequestMapping(value="/Userinfos/{uinum}",method=RequestMethod.DELETE)
-		@ResponseBody 
-		public String deleteUserInfo(@PathVariable int uinum) {
-			return lis.deleteUserInfo(uinum)+""; 
-		}
-	
+
+// GET selectUserList
+
+@RequestMapping(value="/userinfo", method=RequestMethod.GET)
+
+public @ResponseBody List<UserInfo> selectUserList(@ModelAttribute UserInfo ui) {
+
+return us.getUserList(ui);
+
 }
+
+
+
+//GET selectUser
+
+@RequestMapping(value="/userinfo/{uinum}", method=RequestMethod.GET)
+
+public @ResponseBody UserInfo selectUser(@PathVariable Integer uinum) {
+
+return us.getUser(uinum);
+
+}
+
+
+
+//POST insertUserList
+
+@RequestMapping(value="/userinfo", method=RequestMethod.POST)
+
+public @ResponseBody int insertUserList(@RequestBody UserInfo ui) {
+
+return us.insertUser(ui);
+
+}
+
+
+
+//POST 404 error
+
+@RequestMapping(value="/userinfo/{uinum}", method=RequestMethod.POST)
+
+public String insertUser(Model m,@ModelAttribute UserInfo ui) {
+
+m.addAttribute("ui", us.insertUser(ui));
+
+return "/userinfo/erro";
+
+}
+
+
+
+//PUT updateUserList
+
+@RequestMapping(value="/userinfo", method=RequestMethod.PUT)
+
+public @ResponseBody String updateUserList(@RequestBody UserInfo ui,Model m) {
+
+m.addAttribute("ulist",us.updateUser(ui));
+
+return "ulist";
+
+}
+
+
+
+//PUT updateUser
+
+@RequestMapping(value="/userinfo/{uinum}", method=RequestMethod.PUT)
+
+public @ResponseBody Integer updateUser(@RequestBody UserInfo ui, @PathVariable Integer uinum) {
+
+ui.setUinum(uinum);
+
+return us.updateUser(ui);
+
+}
+
+
+
+//DELETE deleteUserList
+
+@RequestMapping(value="/userinfo", method=RequestMethod.DELETE)
+
+public @ResponseBody String deleteUserList(@PathVariable int uinum) {
+
+return us.deleteUser(uinum)+"";
+
+}
+
+
+
+//DELETE deleteUser
+
+@RequestMapping(value="/userinfo/{uinum}", method=RequestMethod.DELETE)
+
+public @ResponseBody String deleteUser(@PathVariable int uinum) {
+
+return us.deleteUser(uinum)+"";
+
+}
+}*/

@@ -19,7 +19,14 @@ public class LevelInfoController {
 
 	@Autowired
 	private LevelInfoService lis;
-
+		
+	//그리드 하면서 만든것
+	@RequestMapping(value="/linum",method=RequestMethod.GET)
+	public @ResponseBody Integer getLinum() {
+		return lis.getLinum();
+	}
+	
+	
 	@RequestMapping(value="/levelinfos",method=RequestMethod.GET)
 	public @ResponseBody List<LevelInfo> getLevelInfoList(@ModelAttribute LevelInfo li) {
 		return lis.getLevelInfoList(li);
@@ -56,6 +63,8 @@ public class LevelInfoController {
 		return lis.testTransaction(li);
 	}
 
-
+	
+	
+	
 
 }

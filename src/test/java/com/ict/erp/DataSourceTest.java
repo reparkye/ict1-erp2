@@ -1,4 +1,4 @@
-package com.ict.erp;
+/*package com.ict.erp;
  import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.fail;
@@ -27,7 +27,7 @@ public class DataSourceTest {
 	@Autowired
 	private SqlSession ss;
 	
-	/*@Test
+	@Test
 	public void test() {
 		try {
 			Connection con = ds.getConnection();
@@ -44,7 +44,7 @@ public class DataSourceTest {
 		}catch(Exception e) {
 			fail(e.getMessage());
 		}
-	}*/
+	}
 	
 	@Test
 	public void ssTest() {
@@ -62,7 +62,7 @@ public class DataSourceTest {
 		ui=ss.selectOne("SQL.USERINFO.selectUserInfo",ui);
 	}
 	
-	/*@Test
+	@Test
 	public void insertTest() {
 		LevelInfo li = new LevelInfo();
 		li.setLilevel(5);
@@ -86,5 +86,5 @@ public class DataSourceTest {
 		li.setLinum(25);
 		assertEquals(ss.delete("SQL.LEVELINFO.deleteLevelInfo",li), 1);
 		
-	}*/
-}
+	}
+}*/

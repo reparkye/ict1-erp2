@@ -17,6 +17,13 @@
     select * from level_info 
     where linum= #{linum}
   </select>
+  
+  
+  <select id="selectLinum" resultType="int">
+  	select seq_linum.nextval as linum from dual
+  </select>
+  
+  
   <insert id="insertLevelInfo" parameterType="li">
   	insert into level_info(linum, lilevel, liname, lidesc)
   	values(seq_linum.nextval, #{lilevel}, #{liname},#{lidesc})
