@@ -27,29 +27,29 @@ public class LevelInfoController {
 	}
 	
 	
-	@RequestMapping(value="/levelinfo",method=RequestMethod.GET)
+	@RequestMapping(value="/levelinfos",method=RequestMethod.GET)
 	public @ResponseBody List<LevelInfo> getLevelInfoList(@ModelAttribute LevelInfo li) {
 		return lis.getLevelInfoList(li);
 	}
-	@RequestMapping(value="/levelinfo/{linum}",method=RequestMethod.GET)
+	@RequestMapping(value="/levelinfos/{linum}",method=RequestMethod.GET)
 	public @ResponseBody LevelInfo getLevelInfo(@PathVariable Integer linum) {
 		return lis.getLevelInfo(linum);
 	}
 
-	@RequestMapping(value="/levelinfo/{linum}",method=RequestMethod.POST)
+	@RequestMapping(value="/levelinfos/{linum}",method=RequestMethod.POST)
 	@ResponseBody 
 	public Integer insertLevelInfo(@RequestBody LevelInfo li) {
 		return lis.insertLevelInfo(li); 
 	}
 
-	@RequestMapping(value="/levelinfo/{linum}",method=RequestMethod.PUT)
+	@RequestMapping(value="/levelinfos/{linum}",method=RequestMethod.PUT)
 	@ResponseBody 
 	public Integer updateLevelInfo(@RequestBody LevelInfo li,@PathVariable Integer linum) {
 		li.setLinum(linum);
 		return lis.updateLevelInfo(li);
 	}
 	
-	@RequestMapping(value="/levelinfo/{linum}",method=RequestMethod.DELETE)
+	@RequestMapping(value="/levelinfos/{linum}",method=RequestMethod.DELETE)
 	@ResponseBody 
 	public String deleteLevelInfo(@PathVariable int linum) {
 		return lis.deleteLevelInfo(linum)+""; 
