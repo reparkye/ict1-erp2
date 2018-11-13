@@ -17,7 +17,12 @@
 	<annotation-driven />
 
 	<!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
-	<resources mapping="/resources/**" location="/resources/" />
+	
+	<resources mapping="/resources/**" location="/resources/" />			
+	<!-- 1 resources 폴더부분에 있는 파일들을 막바(?)로 다운받을수 있게 
+	dispathcer서브릿을 거쳐서 컨트롤러 갔다가 다시 jsp로 가지 않고 바로 접근-->
+	<resources mapping="/.well-known/**" location="/.well-known/" />
+
 
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
 	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -26,6 +31,9 @@
 	</beans:bean>
 	
 	<context:component-scan base-package="com.ict.erp.controller" />
+	<!--중요 2 com 에서 컨트롤러까지 읽히기 위한 것 컨트롤러 폴더안에 있는 모든 자바파일을 가져오는것  
+	          (bean으로 등록하여 의존성주입(@autowired)통해 클래스 생성 처리하는 번거러움 없앰 -->
+	
 	<aop:aspectj-autoproxy/>
 	<!-- <beans:bean class="com.ict.erp.aop.log.LogAspect"/> -->
 </beans:beans>
