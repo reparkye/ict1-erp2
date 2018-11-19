@@ -1,4 +1,4 @@
-package com.ict.erp;
+/*package com.ict.erp;
  import java.io.BufferedReader;
  import java.io.DataOutputStream;
  import java.io.IOException;
@@ -58,4 +58,4 @@ package com.ict.erp;
 			e.printStackTrace();
 		}
 	}
- }
+ }*/
